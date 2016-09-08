@@ -3,9 +3,9 @@
 ## Notes
 
 ### Shader files
-For the following project there is a shader directory that has two shader files: \n
-    1) LoadFragShaders.txt\n
-    2) LoadVertexShaders.txt
+For the following project there is a shader directory that has two shader files: <br> 
+    1) LoadFragShaders.txt <br>
+    2) LoadVertexShaders.txt <br>
 
 ### Shader Load Function
 For loading the shaders I read in the above files and stored the text into a string
