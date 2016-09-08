@@ -2,7 +2,9 @@
 #define SHADER_H
 
 #include <vector>
-
+#include <fstream>
+#include <stdio.h>
+#include <string.h>
 #include "graphics_headers.h"
 
 class Shader

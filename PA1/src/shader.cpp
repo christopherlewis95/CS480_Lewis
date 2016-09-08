@@ -1,5 +1,7 @@
 #include "shader.h"
 
+using namespace std;
+
 Shader::Shader()
 {
   m_shaderProg = 0;
@@ -36,41 +38,62 @@ bool Shader::Initialize()
 bool Shader::AddShader(GLenum ShaderType)
 {
   std::string s;
+  std::string readline;
+  std::ifstream fin;
+  char *stringPtr = new char[1000];
+  char *placer = stringPtr;
+  FILE* filePtr;
+  char dummy;
 
+  // load the shader
   if(ShaderType == GL_VERTEX_SHADER)
   {
-    s = "#version 330\n \
-          \
-          layout (location = 0) in vec3 v_position; \
-          layout (location = 1) in vec3 v_color; \
-          \
-          smooth out vec3 color; \
-          \
-          uniform mat4 projectionMatrix; \
-          uniform mat4 viewMatrix; \
-          uniform mat4 modelMatrix; \
-          \
-          void main(void) \
-          { \
-            vec4 v = vec4(v_position, 1.0); \
-            gl_Position = (projectionMatrix * viewMatrix * modelMatrix) * v; \
-            color = v_color; \
-          } \
-          ";
+  // Open the file from the outside directory (Will change to input later)
+  fin.open( "../shaders/loadVertexShaders.txt" );
+
+  // While the file is "GOOD" read the file and concatinate it to the string
+  while(fin.good())
+      {
+        getline(fin, readline);
+
+        //if its a '#' add a '\n'
+        if( readline[0] == '#')
+          {
+            s = readline + '\n';
+
+          }
+        //else concat and move on
+          else{
+            s = s + readline;
+          }
+      }
+
+  fin.close();
   }
+
   else if(ShaderType == GL_FRAGMENT_SHADER)
   {
-    s = "#version 330\n \
-          \
-          smooth in vec3 color; \
-          \
-          out vec4 frag_color; \
-          \
-          void main(void) \
-          { \
-             frag_color = vec4(color.rgb, 1.0); \
-          } \
-          ";
+  // Open the file from the outside directory (Will change to input later)
+  fin.open( "../shaders/loadFragShaders.txt" );
+
+  // While the file is "GOOD" read the file and concatinate it to the string  
+  while(fin.good())
+      {
+        getline(fin, readline);
+
+        //if its a '#' add a '\n'
+        if( readline[0] == '#')
+          {
+            s = readline + '\n';
+
+          }
+        //else concat and move on
+          else{
+            s = s + readline;
+          }
+      }
+
+  fin.close();
   }
 
   GLuint ShaderObj = glCreateShader(ShaderType);
