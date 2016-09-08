@@ -3,8 +3,8 @@
 ## Notes
 
 ### Shader files
-For the following project there is a shader directory that has two shader files:
-    1) LoadFragShaders.txt
+For the following project there is a shader directory that has two shader files: \n
+    1) LoadFragShaders.txt\n
     2) LoadVertexShaders.txt
 
 ### Shader Load Function
@@ -33,7 +33,9 @@ brew install glew glm sdl2
 ### Running this program
 To build this example just
 ```bash
+$ mkdir build
 $ cd build
+$ cmake ..
 $ make
 $ ./Tutorial
 ```
