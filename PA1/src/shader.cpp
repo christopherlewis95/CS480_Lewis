@@ -40,10 +40,6 @@ bool Shader::AddShader(GLenum ShaderType)
   std::string s;
   std::string readline;
   std::ifstream fin;
-  char *stringPtr = new char[1000];
-  char *placer = stringPtr;
-  FILE* filePtr;
-  char dummy;
 
   // load the shader
   if(ShaderType == GL_VERTEX_SHADER)
@@ -60,7 +56,6 @@ bool Shader::AddShader(GLenum ShaderType)
         if( readline[0] == '#')
           {
             s = readline + '\n';
-
           }
         //else concat and move on
           else{
