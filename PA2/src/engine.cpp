@@ -87,6 +87,12 @@ void Engine::Keyboard()
     {
       m_running = false;
     }
+      
+      if (m_event.key.keysym.sym == SDLK_r)
+      {
+          m_DT = getDT();
+          m_graphics->Update(m_DT);
+      }
   }
 }
 
