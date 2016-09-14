@@ -53,10 +53,13 @@ bool Engine::Initialize()
 void Engine::Run()
 {
   m_running = true;
-
+  flag = NULL;
   while(m_running)
   {
     // Update the DT
+    //char defaultV = '1';
+
+   // char* cPtr = &defaultV;
     m_DT = getDT();
 
     // Check the keyboard input
@@ -66,7 +69,7 @@ void Engine::Run()
     }
 
     // Update and render the graphics
-    m_graphics->Update(m_DT);
+    m_graphics->Update(m_DT, flag);
     m_graphics->Render();
 
     // Swap to the Window
@@ -88,10 +91,19 @@ void Engine::Keyboard()
       m_running = false;
     }
       
-      if (m_event.key.keysym.sym == SDLK_r)
+      else if (m_event.key.keysym.sym == SDLK_r)
       {
-          m_DT = getDT();
-          m_graphics->Update(m_DT);
+            char change = '2';
+           char* flag = &change;
+          m_graphics->Update(m_DT, flag);
+      }
+
+      else if (m_event.key.keysym.sym == SDLK_SPACE)
+      {
+        printf("SPACE\n");
+        char change = '3';
+        char* flag = &change;
+        m_graphics->Update(m_DT, flag);
       }
   }
 }
