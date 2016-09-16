@@ -107,10 +107,10 @@ bool Graphics::Initialize(int width, int height)
   return true;
 }
 
-void Graphics::Update(unsigned int dt, char *val)
+void Graphics::Update(unsigned int dt)
 {
   // Update the object
-  m_cube->Update(dt, val);
+  m_cube->Update(dt);
 }
 
 void Graphics::Render()

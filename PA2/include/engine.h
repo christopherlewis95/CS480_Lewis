@@ -16,7 +16,6 @@ class Engine
     bool Initialize();
     void Run();
     void Keyboard();
-    char *flag;
     unsigned int getDT();
     long long GetCurrentTimeMillis();
   
@@ -33,8 +32,6 @@ class Engine
     unsigned int m_DT;
     long long m_currentTimeMillis;
     bool m_running;
-
-
 };
 
 #endif // ENGINE_H
