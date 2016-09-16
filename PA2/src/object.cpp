@@ -79,37 +79,63 @@ Object::~Object()
 
 void Object::Update(unsigned int dt, unsigned int passUInt)
 {
-  if( passUInt == SDLK_r ) // Fix this with F/G
+  if( passUInt == SDLK_w ) // Fix this with Q/W
   {
-  printf("rotate\n"); 
+    angle += dt * M_PI/1000;
+    vertSpin += dt * M_PI/1000; 
+  printf("angle start\n"); // Start orbit, right
+
   }
 
-  else if( passUInt == SDLK_t ) // Fix this with V/B
+  else if( passUInt == SDLK_q ) // Fix this with Q/W
   {
-  printf("translate\n");
+  printf("angle stop\n"); // Start oribit left
+    angle -= dt * M_PI/1000;
+    vertSpin -= dt * M_PI/1000;
   }
+
+
+  else if( passUInt == SDLK_s ) // Fix this with A/S
+  {
+    vertSpin += dt * M_PI/1000;
+    angle += dt * M_PI/1000;
+  printf("spin cube start\n"); // Start Spin
+  }
+
+
+  else if( passUInt == SDLK_a ) // Fix this with A/S
+  {
+
+    vertSpin -= dt * M_PI/1000;
+    angle += dt * M_PI/1000;
+  printf("spin cube stop\n"); // Stop Spin
+  }
+
+
   else if( passUInt == SDLK_SPACE ) // Stop time
   {
     angle += dt*0;
     vertSpin += dt*0;
    // spacePressed = true;
   }
+
+
   else if( passUInt == SDLK_c ) // Continue time
   {
-    angle += dt * M_PI/1000;
-    vertSpin += dt * M_PI/1000; 
-   // spacePressed = true;
+
   }
+
+
   else // Do the default spin
   { 
     angle += dt * M_PI/1000;
     vertSpin += dt * M_PI/1000;  
   }
   
-
  // angle += dt * M_PI/1000;
   model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
   model = glm::translate ( (model), glm::vec3(5.0, 1.0, 0.0));
+  model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
 
 }
 

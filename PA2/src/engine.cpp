@@ -89,13 +89,21 @@ void Engine::Keyboard()
       m_running = false;
     
     }
-    else if (m_event.key.keysym.sym == SDLK_r)
+    else if (m_event.key.keysym.sym == SDLK_w)
     {
-    keyInput = SDLK_r; // Toggle Rotate
+    keyInput = SDLK_w; // Toggle Translate (Angle) start
     }
-    else if (m_event.key.keysym.sym == SDLK_t)
+    else if (m_event.key.keysym.sym == SDLK_q)
     {
-    keyInput = SDLK_t; // Toggle Translate
+    keyInput = SDLK_q; // Toggle Translate (Angle) stop
+    }
+    else if (m_event.key.keysym.sym == SDLK_s)
+    {
+    keyInput = SDLK_s; // Rotate (Spin) Start
+    }
+    else if (m_event.key.keysym.sym == SDLK_a)
+    {
+    keyInput = SDLK_a; // Rotate (Spin) Stop
     }
     else if (m_event.key.keysym.sym == SDLK_SPACE)
     {
