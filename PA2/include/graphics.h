@@ -8,6 +8,7 @@ using namespace std;
 #include "camera.h"
 #include "shader.h"
 #include "object.h"
+#include <SDL2/SDL.h>
 
 class Graphics
 {
@@ -15,8 +16,10 @@ class Graphics
     Graphics();
     ~Graphics();
     bool Initialize(int width, int height);
-    void Update(unsigned int dt);
+    void Update(unsigned int dt, unsigned int passUInt);
     void Render();
+    //unsigned int getKeyboard();
+    //void passUInt(unsigned int passedUint);
 
   private:
     std::string ErrorString(GLenum error);

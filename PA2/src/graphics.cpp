@@ -107,10 +107,10 @@ bool Graphics::Initialize(int width, int height)
   return true;
 }
 
-void Graphics::Update(unsigned int dt)
+void Graphics::Update(unsigned int dt, unsigned int passUInt)
 {
   // Update the object
-  m_cube->Update(dt);
+  m_cube->Update(dt, passUInt);
 }
 
 void Graphics::Render()
@@ -138,7 +138,14 @@ void Graphics::Render()
     std::cout<< "Error initializing OpenGL! " << error << ", " << val << std::endl;
   }
 }
+/*
+void Graphics::passUInt(unsigned int passedUint)
+{
 
+
+
+}
+*/
 std::string Graphics::ErrorString(GLenum error)
 {
   if(error == GL_INVALID_ENUM)

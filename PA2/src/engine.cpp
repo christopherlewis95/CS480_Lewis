@@ -62,11 +62,11 @@ void Engine::Run()
     // Check the keyboard input
     while(SDL_PollEvent(&m_event) != 0)
     {
-      Keyboard();
+     Keyboard();
     }
 
     // Update and render the graphics
-    m_graphics->Update(m_DT);
+    m_graphics->Update(m_DT, keyInput);
     m_graphics->Render();
 
     // Swap to the Window
@@ -79,6 +79,7 @@ void Engine::Keyboard()
   if(m_event.type == SDL_QUIT)
   {
     m_running = false;
+
   }
   else if (m_event.type == SDL_KEYDOWN)
   {
@@ -86,8 +87,28 @@ void Engine::Keyboard()
     if (m_event.key.keysym.sym == SDLK_ESCAPE)
     {
       m_running = false;
+    
     }
+    else if (m_event.key.keysym.sym == SDLK_r)
+    {
+    keyInput = SDLK_r; // Toggle Rotate
+    }
+    else if (m_event.key.keysym.sym == SDLK_t)
+    {
+    keyInput = SDLK_t; // Toggle Translate
+    }
+    else if (m_event.key.keysym.sym == SDLK_SPACE)
+    {
+    keyInput = SDLK_SPACE; // Toggle Pause
+    }
+    else if (m_event.key.keysym.sym == SDLK_c)
+    {
+    keyInput = SDLK_c; // Toggle Continue
+    }
+    // else if ()
+
   }
+
 }
 
 unsigned int Engine::getDT()

@@ -18,7 +18,8 @@ class Engine
     void Keyboard();
     unsigned int getDT();
     long long GetCurrentTimeMillis();
-  
+    unsigned int keyInput; 
+
   private:
     // Window related variables
     Window *m_window;    
@@ -32,6 +33,7 @@ class Engine
     unsigned int m_DT;
     long long m_currentTimeMillis;
     bool m_running;
+
 };
 
 #endif // ENGINE_H
