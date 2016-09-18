@@ -1,4 +1,4 @@
-# PA1: Spinning Cube with keyboard interaction Version 2.0
+# PA2: Spinning Cube with keyboard interaction Version 2.0
 
 ## Notes
 
@@ -25,7 +25,7 @@ SPACEBAR - Pauses the animation (To unpause.. press A,S,Z, or X)
 ## Plans in version 3.0 (Coming Wednesday, September 21st, 2016 at 6:00am PST)
 ```bash
 1) Moon <br>
-    "Thats no moon.." -Obi-Wan Kenobi 
+    "Thats no moon.." -  Obi-Wan Kenobi 
 2) Adding Q & W keys 
 3) Adding mouse interaction! 
 ```
