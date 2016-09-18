@@ -45,7 +45,7 @@ bool Shader::AddShader(GLenum ShaderType)
   if(ShaderType == GL_VERTEX_SHADER)
   {
   // Open the file from the outside directory (Will change to input later)
-  fin.open( "../shaders/loadVertexShaders.txt" );
+  fin.open( "../shaders/LoadVertexShaders.txt" );
 
   // While the file is "GOOD" read the file and concatinate it to the string
   while(fin.good())
@@ -69,7 +69,7 @@ bool Shader::AddShader(GLenum ShaderType)
   else if(ShaderType == GL_FRAGMENT_SHADER)
   {
   // Open the file from the outside directory (Will change to input later)
-  fin.open( "../shaders/loadFragShaders.txt" );
+  fin.open( "../shaders/LoadFragShaders.txt" );
 
   // While the file is "GOOD" read the file and concatinate it to the string  
   while(fin.good())
