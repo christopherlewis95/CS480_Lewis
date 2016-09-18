@@ -22,7 +22,10 @@ class Object
     GLuint VB;
     GLuint IB;
     bool spacePressed;
-
+    bool spin;
+    bool orbit;
+    bool defaultFlag;
+    bool configureFlag;
     float angle;
     float vertSpin;
 };

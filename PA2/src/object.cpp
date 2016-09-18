@@ -61,6 +61,9 @@ Object::Object()
   }
   spacePressed = false;
   angle = 0.0f;
+  spin = true;
+  orbit = true;
+  defaultFlag = true;
 
   glGenBuffers(1, &VB);
   glBindBuffer(GL_ARRAY_BUFFER, VB);
@@ -79,63 +82,104 @@ Object::~Object()
 
 void Object::Update(unsigned int dt, unsigned int passUInt)
 {
-  if( passUInt == SDLK_w ) // Fix this with Q/W
+  /*
+  if( passUInt == SDLK_o ) // Fix this with Q/W
   {
-    angle += dt * M_PI/1000;
-    vertSpin += dt * M_PI/1000; 
-  printf("angle start\n"); // Start orbit, right
-
+    orbit = !orbit; 
+    printf("orbit configured\n"); 
   }
 
-  else if( passUInt == SDLK_q ) // Fix this with Q/W
-  {
-  printf("angle stop\n"); // Start oribit left
-    angle -= dt * M_PI/1000;
-    vertSpin -= dt * M_PI/1000;
+  else if( passUInt == SDLK_s )
+  { 
+    spin = !spin; 
+    printf("spin configured\n"); 
   }
-
-
-  else if( passUInt == SDLK_s ) // Fix this with A/S
-  {
-    vertSpin += dt * M_PI/1000;
-    angle += dt * M_PI/1000;
-  printf("spin cube start\n"); // Start Spin
-  }
-
-
-  else if( passUInt == SDLK_a ) // Fix this with A/S
-  {
-
-    vertSpin -= dt * M_PI/1000;
-    angle += dt * M_PI/1000;
-  printf("spin cube stop\n"); // Stop Spin
-  }
-
 
   else if( passUInt == SDLK_SPACE ) // Stop time
   {
     angle += dt*0;
     vertSpin += dt*0;
-   // spacePressed = true;
-  }
+    spin = false;
+    orbit = false;
 
-
-  else if( passUInt == SDLK_c ) // Continue time
-  {
-
-  }
-
-
-  else // Do the default spin
-  { 
-    angle += dt * M_PI/1000;
-    vertSpin += dt * M_PI/1000;  
-  }
-  
- // angle += dt * M_PI/1000;
+  // angle += dt * M_PI/1000;
   model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
   model = glm::translate ( (model), glm::vec3(5.0, 1.0, 0.0));
   model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+  // spacePressed = true;
+  }
+*/
+
+    if( passUInt == SDLK_SPACE ) 
+     { 
+      angle += dt*0;
+      vertSpin +=dt*0;
+      model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+      model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
+      model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+     }
+    else if( passUInt == SDLK_o )
+    { 
+     angle -= dt * M_PI/1000;
+     vertSpin += dt * M_PI/1000;
+     model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
+     model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+    } 
+    else if( passUInt == SDLK_a )
+    { 
+     angle -= dt * M_PI/1000;
+     vertSpin += dt * M_PI/1000;
+     model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
+     model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+    } 
+    else if( passUInt == SDLK_s )
+    { 
+     angle += dt * M_PI/1000;
+     vertSpin -= dt * M_PI/1000;
+     model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
+     model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+    } 
+    else if( passUInt == SDLK_x )
+    { 
+     angle += dt * M_PI/1000;
+     vertSpin += dt * M_PI/1000;
+     model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
+     model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+    }
+    else if( passUInt == SDLK_z )
+    { 
+     angle -= dt * M_PI/1000;
+     vertSpin -= dt * M_PI/1000;
+     model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
+     model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+    }  
+    else 
+    { 
+     angle += dt * M_PI/1000;
+     vertSpin += dt * M_PI/1000;
+     model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
+     model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+    } 
+
+
+  /*
+
+else{
+    angle += dt * M_PI/1000;
+    vertSpin += dt * M_PI/1000;  
+
+     // angle += dt * M_PI/1000;
+  model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
+  model = glm::translate ( (model), glm::vec3(5.0,1.0, 0.0));
+  model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
+  }
+*/
 
 }
 

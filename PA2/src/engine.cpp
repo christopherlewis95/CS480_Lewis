@@ -97,6 +97,10 @@ void Engine::Keyboard()
     {
     keyInput = SDLK_q; // Toggle Translate (Angle) stop
     }
+    else if (m_event.key.keysym.sym == SDLK_e)
+    {
+    keyInput = SDLK_e; // Toggle Translate (Angle) stop
+    }
     else if (m_event.key.keysym.sym == SDLK_s)
     {
     keyInput = SDLK_s; // Rotate (Spin) Start
@@ -105,6 +109,10 @@ void Engine::Keyboard()
     {
     keyInput = SDLK_a; // Rotate (Spin) Stop
     }
+    else if (m_event.key.keysym.sym == SDLK_d)
+    {
+    keyInput = SDLK_d; // Rotate (Spin) Stop
+    }    
     else if (m_event.key.keysym.sym == SDLK_SPACE)
     {
     keyInput = SDLK_SPACE; // Toggle Pause
@@ -112,6 +120,22 @@ void Engine::Keyboard()
     else if (m_event.key.keysym.sym == SDLK_c)
     {
     keyInput = SDLK_c; // Toggle Continue
+    }
+    else if (m_event.key.keysym.sym == SDLK_o)
+    {
+    keyInput = SDLK_o; // Toggle Translate (Angle) start
+    }
+    else if (m_event.key.keysym.sym == SDLK_s)
+    {
+    keyInput = SDLK_s; // Toggle Translate (Angle) start
+    }
+    else if (m_event.key.keysym.sym == SDLK_x)
+    {
+    keyInput = SDLK_x; // Toggle Translate (Angle) start
+    }
+    else if (m_event.key.keysym.sym == SDLK_z)
+    {
+    keyInput = SDLK_z; // Toggle Translate (Angle) start
     }
     // else if ()
 
