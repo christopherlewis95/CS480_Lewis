@@ -95,7 +95,6 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
      }
     else if( passUInt == SDL_MOUSEBUTTONDOWN) 
      { 
-      printf("HELLO\n");
       angle += dt*0;
       vertSpin +=dt*0;
       model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
