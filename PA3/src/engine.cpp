@@ -81,7 +81,7 @@ void Engine::Keyboard()
     m_running = false;
 
   }
-  else if (m_event.type == SDL_KEYDOWN)
+  else if (m_event.type == SDL_KEYDOWN || m_event.type == SDL_MOUSEBUTTONDOWN)
   {
     // handle key down events here
     if (m_event.key.keysym.sym == SDLK_ESCAPE)
@@ -93,6 +93,7 @@ void Engine::Keyboard()
     {
     keyInput = SDLK_w; // Toggle Translate (Angle) start
     }
+
     else if (m_event.key.keysym.sym == SDLK_q)
     {
     keyInput = SDLK_q; // Toggle Translate (Angle) stop
@@ -117,6 +118,12 @@ void Engine::Keyboard()
     {
     keyInput = SDLK_SPACE; // Toggle Pause
     }
+    else if ( m_event.button.button == SDL_BUTTON_LEFT )
+    {
+    keyInput = SDLK_SPACE; // Toggle Pause
+    }
+
+
     else if (m_event.key.keysym.sym == SDLK_c)
     {
     keyInput = SDLK_c; // Toggle Continue

@@ -1,4 +1,4 @@
-# PA2: Spinning Cube with keyboard interaction Version 2.0
+# PA3: Spinning Cube (and Moon) with keyboard interaction Version 3.0
 
 ## Notes
 
@@ -11,7 +11,7 @@ For the following project there is a shader directory that has two shader files:
 For loading the shaders I read in the above files and stored the text into a string
 
 ### Rotation and Spinning
-To spin and rotate the cube in different ways use the following keys:
+To spin and rotate the cube and moon in different ways use the following keys:
 ```bash
 Q - Not functional (Will work in a later update)
 W - Not functional (Will work in a later update)
@@ -20,18 +20,19 @@ S - Stops rotating the cube and orbits the cube RIGHT
 Z - Spins the cube left (Rotation & Orbit)
 X - Spins the cube right (Rotation & Orbit)
 SPACEBAR - Pauses the animation (To unpause.. press A,S,Z, or X)
+
+NEW FEATURE(S) BELOW!
+Left Click - Pauses the animation (To unpause.. press A,S,Z, or X)
 ```
 
-## Plans in version 3.0 (Coming Wednesday, September 21st, 2016 at 6:00am PST)
+## Plans in version 4.0 (Coming SOON!)
 ```bash
-1) Moon 
-    "Thats no moon.." -  Obi-Wan Kenobi 
-2) Adding Q & W keys 
-3) Adding mouse interaction! 
+1) Adding Q & W key interaction
+2) Adding a model loader!
 ```
 
 ## Building and Running this example
-Running this example requires some libraries to be installed on either Ubuntu or Mac 
+Running this example requires some libraries to be installed on either Ubuntu or Mac <br>
 
 ### For Ubuntu:
 ```bash
@@ -52,4 +53,15 @@ $ cmake ..
 $ make
 $ ./Tutorial
 ```
+
+### ERRORS?
+<b>IF FOR SOME CHANCE UPON RUNNING THE WINDOW IS BLANK, RUN THESE LINES IN BUILD DIRECTORY..</b>
+```bash
+$ make clean
+$ make 
+$ ./Tutorial
+```
+
+
+
 
