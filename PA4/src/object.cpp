@@ -3,58 +3,6 @@
 
 Object::Object()
 {  
-  /*
-    # Blender File for a Cube
-    o Cube
-    v 1.000000 -1.000000 -1.000000
-    v 1.000000 -1.000000 1.000000
-    v -1.000000 -1.000000 1.000000
-    v -1.000000 -1.000000 -1.000000
-    v 1.000000 1.000000 -0.999999
-    v 0.999999 1.000000 1.000001
-    v -1.000000 1.000000 1.000000
-    v -1.000000 1.000000 -1.000000
-    s off
-    f 2 3 4
-    f 8 7 6
-    f 1 5 6
-    f 2 6 7
-    f 7 8 4
-    f 1 4 8
-    f 1 2 4
-    f 5 8 6
-    f 2 1 6
-    f 3 2 7
-    f 3 7 4
-    f 5 1 8
-  */
-    /*
-  Vertices = {
-    {{1.0f, -1.0f, -1.0f}, {0.0f, 0.0f, 0.0f}},
-    {{1.0f, -1.0f, 1.0f}, {1.0f, 0.0f, 0.0f}},
-    {{-1.0f, -1.0f, 1.0f}, {0.0f, 1.0f, 0.0f}},
-    {{-1.0f, -1.0f, -1.0f}, {0.0f, 0.0f, 1.0f}},
-    {{1.0f, 1.0f, -1.0f}, {1.0f, 1.0f, 0.0f}},
-    {{1.0f, 1.0f, 1.0f}, {1.0f, 0.0f, 1.0f}},
-    {{-1.0f, 1.0f, 1.0f}, {0.0f, 1.0f, 1.0f}},
-    {{-1.0f, 1.0f, -1.0f}, {1.0f, 1.0f, 1.0f}}
-  };
-
-  Indices = {
-    2, 3, 4,
-    8, 7, 6,
-    1, 5, 6,
-    2, 6, 7,
-    7, 8, 4,
-    1, 4, 8,
-    1, 2, 4,
-    5, 8, 6,
-    2, 1, 6,
-    3, 2, 7,
-    3, 7, 4,
-    5, 1, 8
-  };
-  */
 
   //Vertices = new Vertices[];
   getObj();
@@ -86,8 +34,6 @@ void Object::Update(unsigned int dt)
 {
   angle += dt * M_PI/1000;
   model = glm::rotate(glm::mat4(1.0f), (angle), glm::vec3(0.0, 1.0, 0.0));
-  //model = glm::translate ( (model), glm::vec3(5.0, 1.0, 0.0));
-
 }
 
 glm::mat4 Object::GetModel()
@@ -120,7 +66,7 @@ void Object::getObj()
   float val1, val2, val3;
 
   // Open the file from the outside directory (Will change to input later)
-  fin.open( "../objects/box_cs480.obj" );
+  fin.open( "../objects/boxR.obj" );
 
   getline(fin, readline);
   while(readline[0]!= 'o')
@@ -131,9 +77,8 @@ void Object::getObj()
   // While the file is "GOOD" read the file and concatinate it to the string
   while(fin.good())
       {
-        // Make new vertex
         fin >> s;
-       // cout << "The char is:" << s << endl;
+
         if( s == "v")
         {
           fin >> val1 >> val2 >> val3;
