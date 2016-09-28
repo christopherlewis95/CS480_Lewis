@@ -46,7 +46,6 @@ bool Graphics::Initialize(int width, int height)
 
   // Create the object
   m_cube = new Object();
-  m_moon  = new Object();
 
   // Set up the shaders
   m_shader = new Shader();
@@ -108,13 +107,10 @@ bool Graphics::Initialize(int width, int height)
   return true;
 }
 
-void Graphics::Update(unsigned int dt, unsigned int passUInt)
+void Graphics::Update(unsigned int dt)
 {
   // Update the object
-  m_cube->Update(dt, passUInt);
-
-  m_moon->setOrigin(m_cube -> GetModel());
-  m_moon->Update(dt, passUInt);
+  m_cube->Update(dt);
 }
 
 void Graphics::Render()
@@ -132,11 +128,7 @@ void Graphics::Render()
 
   // Render the object
   glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_cube->GetModel()));
-
   m_cube->Render();
-
-  glUniformMatrix4fv(m_modelMatrix, 1, GL_FALSE, glm::value_ptr(m_moon->GetModel()));
-  m_moon->Render();
 
   // Get any errors from OpenGL
   auto error = glGetError();
@@ -146,14 +138,7 @@ void Graphics::Render()
     std::cout<< "Error initializing OpenGL! " << error << ", " << val << std::endl;
   }
 }
-/*
-void Graphics::passUInt(unsigned int passedUint)
-{
 
-
-
-}
-*/
 std::string Graphics::ErrorString(GLenum error)
 {
   if(error == GL_INVALID_ENUM)

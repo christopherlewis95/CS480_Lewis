@@ -64,7 +64,8 @@ Object::Object()
   spin = true;
   orbit = true;
   defaultFlag = true;
-  origin = glm::mat4(1.0f);
+
+  setOrigin(glm::mat4(1.0f));
 
   glGenBuffers(1, &VB);
   glBindBuffer(GL_ARRAY_BUFFER, VB);
@@ -89,7 +90,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
      { 
       angle += dt*0;
       vertSpin +=dt*0;
-      model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+      model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
       model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
       model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
      }
@@ -97,7 +98,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
      { 
       angle += dt*0;
       vertSpin +=dt*0;
-      model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+      model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
       model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
       model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
      }
@@ -106,7 +107,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
     { 
      angle -= dt * M_PI/1000;
      vertSpin += dt * M_PI/1000;
-     model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
      model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
      model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
 
@@ -116,7 +117,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
     { 
      angle -= dt * M_PI/1000;
      vertSpin += dt * M_PI/1000;
-     model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
      model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
      model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
 
@@ -126,7 +127,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
     { 
      angle += dt * M_PI/1000;
      vertSpin -= dt * M_PI/1000;
-     model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
      model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
      model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
 
@@ -135,7 +136,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
     { 
      angle += dt * M_PI/1000;
      vertSpin += dt * M_PI/1000;
-     model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
      model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
      model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
 
@@ -144,7 +145,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
     { 
      angle -= dt * M_PI/1000;
      vertSpin -= dt * M_PI/1000;
-     model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
      model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
      model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
 
@@ -153,7 +154,7 @@ void Object::Update(unsigned int dt, unsigned int passUInt)
     { 
      angle += dt * M_PI/1000;
      vertSpin += dt * M_PI/1000;
-     model = glm::rotate(origin, (angle), glm::vec3(0.0, 1.0, 0.0));
+     model = glm::rotate(model, (angle), glm::vec3(0.0, 1.0, 0.0));
      model = glm::translate(model, glm::vec3(5.0, 1.0, 0.0));
      model = glm::rotate(model, vertSpin, glm::vec3(0.0,1.0,0.0));
 
@@ -168,13 +169,13 @@ glm::mat4 Object::GetModel()
   return model;
 }
 
-/*
-glm::mat4 Object::GetOrigin(glm::mat4 mat4Object)
+
+void Object::setOrigin(glm::mat4 mat4Object)
 {
-  return mat4Object->GetModel();
+  model = mat4Object;
 }
 
-*/
+
 
 
 void Object::Render()
