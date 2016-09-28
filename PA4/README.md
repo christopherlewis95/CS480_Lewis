@@ -4,7 +4,7 @@
 For this project I was tasked with creating a model loader and then loading a .OBJ file in Blender for export so that it can be loaded in the program. 
 
 
-## Notes
+## OBJ File
 The following code for my .OBJ file is contained under PA4/objects/boxR.obj
 ```bash
 # Blender v2.77 (sub 0) OBJ File: 'boxR.blend'
@@ -41,7 +41,7 @@ f 3//5 7//5 8//5
 f 1//6 4//6 8//6
 ```
 
-## Notes
+## Secondary OBJ
 My secondary .OBJ file is contained under PA4/objects/box_open.obj
 ```bash
 # Blender v2.77 (sub 0) OBJ File: ''
@@ -183,7 +183,7 @@ $ make
 $ ./Tutorial
 ```
 
-## NOTE
+## ATTENTION
 To change the object you must change the following line in getObj() which is implemented in object.cpp
 ```bash
   fin.open( "../objects/boxR.obj" );
