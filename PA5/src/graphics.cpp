@@ -107,12 +107,10 @@ bool Graphics::Initialize(int width, int height)
   return true;
 }
 
-void Graphics::Update(unsigned int dt, unsigned int passUInt)
+void Graphics::Update(unsigned int dt)
 {
   // Update the object
-  m_cube->Update(dt, passUInt);
-  m_camera->updateCamera( passUInt );
-
+  m_cube->Update(dt);
 }
 
 void Graphics::Render()
@@ -140,14 +138,7 @@ void Graphics::Render()
     std::cout<< "Error initializing OpenGL! " << error << ", " << val << std::endl;
   }
 }
-/*
-void Graphics::passUInt(unsigned int passedUint)
-{
 
-
-
-}
-*/
 std::string Graphics::ErrorString(GLenum error)
 {
   if(error == GL_INVALID_ENUM)

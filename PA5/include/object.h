@@ -3,18 +3,22 @@
 
 #include <vector>
 #include "graphics_headers.h"
-#include <SDL2/SDL.h>
+#include <fstream>
+#include "string"
+
+using namespace std;
 
 class Object
 {
   public:
     Object();
     ~Object();
-    void Update(unsigned int dt, unsigned int passUInt);
+    void Update(unsigned int dt);
     void Render();
-    
 
     glm::mat4 GetModel();
+    void getObj();
+
 
   private:
     glm::mat4 model;
@@ -22,13 +26,8 @@ class Object
     std::vector<unsigned int> Indices;
     GLuint VB;
     GLuint IB;
-    bool spacePressed;
-    bool spin;
-    bool orbit;
-    bool defaultFlag;
-    bool configureFlag;
+
     float angle;
-    float vertSpin;
 };
 
 #endif /* OBJECT_H */

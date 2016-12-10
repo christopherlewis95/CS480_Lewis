@@ -1,5 +1,8 @@
 
 #include "engine.h"
+#include <SDL.h>
+
+using namespace std;
 
 Engine::Engine(string name, int width, int height)
 {
@@ -7,6 +10,23 @@ Engine::Engine(string name, int width, int height)
   m_WINDOW_WIDTH = width;
   m_WINDOW_HEIGHT = height;
   m_FULLSCREEN = false;
+  
+  SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER);
+
+  SDL_GameController *controller = nullptr;
+
+  for(int i = 0; i < SDL_NumJoysticks(); i++)
+  {
+    if(SDL_IsGameController(i))
+    {
+      controller = SDL_GameControllerOpen(i);
+      std::cout << SDL_GameControllerMapping(controller) << std::endl;
+      printf("And thats how it is!\n");
+      break;
+    }
+  }
+  xDir = 0;
+  yDir = 0;
 }
 
 Engine::Engine(string name)
@@ -81,6 +101,105 @@ void Engine::Keyboard()
     m_running = false;
 
   }
+
+  else if (m_event.type == SDL_CONTROLLERBUTTONDOWN)
+  {
+    if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_A)
+    {
+      printf("A IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_B)
+    {
+      printf("B IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_X)
+    {
+      printf("X IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_Y)
+    {
+      printf("Y IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_BACK)
+    {
+      printf("BACK IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_GUIDE)
+    {
+      printf("GUIDE IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_START)
+    {
+      printf("START IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_LEFTSTICK)
+    {
+      printf("LEFT STICK IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_RIGHTSTICK)
+    {
+      printf("RIGHT STICK IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_LEFTSHOULDER)
+    {
+      printf("LEFT SHOULDER IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_RIGHTSHOULDER)
+    {
+      printf("RIGHT SHOULDER IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_UP)
+    {
+      printf("DPAD UP IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_DOWN)
+    {
+      printf("DPAD DOWN IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_LEFT)
+    {
+      printf("DPAD LEFT IS DOWN\n");
+
+
+    }
+    else if(m_event.cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_RIGHT)
+    {
+      printf("DPAD RIGHT IS DOWN\n");
+
+
+    }
+
+
+  }
+
+
+
   else if (m_event.type == SDL_KEYDOWN)
   {
     // handle key down events here
