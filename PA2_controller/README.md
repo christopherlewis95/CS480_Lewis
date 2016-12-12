@@ -1,55 +1,61 @@
-# PA2: Spinning Cube with keyboard interaction Version 2.0
+# Strike of the Empire
 
-## Notes
+<b> <i> Project Partners: Ryan Echeveria, Donald Hack, and Christopher Lewis </i></b>
 
-### Shader files
-For the following project there is a shader directory that has two shader files: <br> 
-    1) LoadFragShaders.txt <br>
-    2) LoadVertexShaders.txt <br>
+# Warning!!!! 
+ The following program contains rage inducing enemies and gameplay that may not be suitable to all audiences.  If you have rage inducing tendencies, a dislike of Star Wars, or Nintendo this game may not be intended for you.  Also, if you don’t like Star Wars then you should consult a specialist.  Thank you and enjoy. <br> <br>
 
-### Shader Load Function
-For loading the shaders I read in the above files and stored the text into a string
+ Disclaimer: All Models, textures, and Sound files are for entertainment purposes only and owned by their respective owners.
 
-### Rotation and Spinning
-To spin and rotate the cube in different ways use the following keys:
+# Overview
+The following project will allow the player to control a ship either with a keyboard input or a controller input.  The user will need to dodge the incoming ships and the incoming lasers.  The user will have a specific amount of health and will only loose health if a laser hits the users ship.  If the user is hit by a ship, the user will automatically lose.  The terminal will then display the final score.  
+
+## Extra Credit
 ```bash
-Q - Not functional (Will work in a later update)
-W - Not functional (Will work in a later update)
-A - Stops rotating the cube and orbits the cube LEFT
-S - Stops rotating the cube and orbits the cube RIGHT
-Z - Spins the cube left (Rotation & Orbit)
-X - Spins the cube right (Rotation & Orbit)
-SPACEBAR - Pauses the animation (To unpause.. press A,S,Z, or X)
+-	Controller: 5pts (at least)
+-	Sound Effects: 5pts (at least)
+-	High Score: 1pts
+-	Custom Textures (Built from Paint): 1pts
+-	Custom Physics Callbacks: 10pts
+-	Enemy AI: 5pts (at least)
+```
+## Running
+If you do not have a terminal open – <b>hold CTRL + ALT + T</b> <br>
+Enter the following without the ‘-’ symbols: 
+```bash
+-	cd ~
+-	cd Desktop/computer-graphics/Final Project/build
+-	make clean
+-	make
+-	./Game
+
+<b>Note:</b> if the program does not run, type the following without the ‘-’ symbols:
+-	CTRL + L
+-	make clean
+-	make
+-	./Game
+
+<b> In order to replay the game, type the following without the ‘-‘ symbols: </b>
+-	./Game
+
 ```
 
-## Plans in version 3.0 (Coming Wednesday, September 21st, 2016 at 6:00am PST)
+## Controls
 ```bash
-1) Moon 
-    "Thats no moon.." -  Obi-Wan Kenobi 
-2) Adding Q & W keys 
-3) Adding mouse interaction! 
+The following keys allow for user interaction on the keyboard: 
+P = pause
+Arrow Keys = movement of ship
+The following is for controller input
+	Note: MODE button on Logitech controller must be off.
+D-PAD = movement of ship
+Center button of Logitech Controller = Pause 
+
+
 ```
+ 
+### Issues
+<b>Issues in Program:</b>
+-	Every few runs, may not contain ending sounds
+-	Possible error with controller if Logitech Mode select is activated (green button on).   
 
-## Building and Running this example
-Running this example requires some libraries to be installed on either Ubuntu or Mac 
-
-### For Ubuntu:
-```bash
-sudo apt-get install libglew-dev libglm-dev libsdl2-dev
-```
-
-### For Mac:
-```bash
-brew install glew glm sdl2
-```
-
-### Running this program
-To build this example just
-```bash
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-$ ./Tutorial
-```
-
+# “Thank you so much for to playing my game.” - Mario
